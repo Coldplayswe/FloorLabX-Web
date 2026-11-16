@@ -95,21 +95,47 @@ export default function HomePage() {
           line-height: 1.5 !important;
           margin-bottom: 22px !important;
         }
+        /* La motivet gli inn i hero-bakgrunnen, uten synlig bilderamme. */
         .hero .flx-photo-art {
           overflow: hidden !important;
-          border-radius: 18px;
-          box-shadow: 0 18px 55px rgba(0, 216, 239, 0.10);
+          border: 0 !important;
+          border-radius: 0 !important;
+          box-shadow: none !important;
+          background: transparent !important;
+          pointer-events: none;
+          -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.4) 14%, black 36%), linear-gradient(to bottom, transparent 0%, black 13%, black 83%, transparent 100%);
+          -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.4) 14%, black 36%), linear-gradient(to bottom, transparent 0%, black 13%, black 83%, transparent 100%);
+          mask-composite: intersect;
         }
         .hero .flx-photo-art::before,
         .hero .flx-photo-art::after { display: none !important; }
-        .hero .flx-photo-art img { max-width: none; }
+        .hero .flx-photo-art img { max-width: none; border-radius: 0 !important; }
         .hero .hero-copy { position: relative; z-index: 2; }
         .hero .flx-compact-heading { max-width: 760px; }
         @media (min-width: 901px) {
-          .hero .flx-photo-art { align-self: center; }
+          .hero .hero-content { position: relative; }
+          .hero .flx-photo-art {
+            position: absolute !important;
+            top: -12px;
+            right: -90px;
+            width: 66%;
+            height: 490px;
+            z-index: 0;
+            align-self: auto;
+          }
+          .hero .flx-photo-art img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 54% center;
+          }
+          .hero .hero-copy { position: relative; z-index: 2; }
+          .hero .feature-grid { position: relative; z-index: 2; }
         }
         @media (max-width: 900px) {
           .hero .flx-compact-heading { font-size: clamp(2rem, 5.5vw, 3rem) !important; }
+          .hero .flx-photo-art { border-radius: 0 !important; }
         }
         @media (max-width: 600px) {
           .hero .flx-compact-heading { font-size: clamp(1.75rem, 6.1vw, 2.35rem) !important; }
@@ -166,7 +192,7 @@ export default function HomePage() {
                 minHeight: 340,
                 objectFit: "cover",
                 objectPosition: "center",
-                borderRadius: 18,
+                borderRadius: 0,
               }}
             />
           </div>
