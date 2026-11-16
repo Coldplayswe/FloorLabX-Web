@@ -46,21 +46,17 @@ export default function HomePage() {
     <main>
       <header className="site-header">
         <div className="container header-inner">
-          <a
-            className="brand"
-            href="#hjem"
-            aria-label="FloorLabX forside"
-          >
+          <a className="brand" href="#hjem" aria-label="FloorLabX forside">
             <img
               src={LOGO_URL}
               alt="FloorLabX"
               style={{
                 display: "block",
-                width: "220px",
+                width: 220,
                 maxWidth: "100%",
                 height: "auto",
                 objectFit: "contain",
-                borderRadius: "6px",
+                borderRadius: 6,
               }}
             />
           </a>
@@ -76,44 +72,70 @@ export default function HomePage() {
           </nav>
 
           <div className="header-actions">
-            <a
-              className="button button-outline login-button"
-              href={APP_URL}
-            >
+            <a className="button button-outline login-button" href={APP_URL}>
               Logg inn
             </a>
-            <a
-              className="button button-primary"
-              href="#funksjoner"
-            >
+            <a className="button button-primary" href="#funksjoner">
               Utforsk
             </a>
           </div>
         </div>
       </header>
 
+      <style>{`
+        .hero .flx-compact-heading {
+          font-size: clamp(2.15rem, 3.15vw, 3.35rem) !important;
+          line-height: 1.12 !important;
+          letter-spacing: -0.035em;
+          margin-bottom: 18px !important;
+        }
+        .hero .flx-heading-white { color: #f5f8fc !important; }
+        .hero .flx-compact-description {
+          font-size: clamp(0.98rem, 1.12vw, 1.13rem) !important;
+          line-height: 1.5 !important;
+          margin-bottom: 22px !important;
+        }
+        .hero .flx-photo-art {
+          overflow: hidden !important;
+          border-radius: 18px;
+          box-shadow: 0 18px 55px rgba(0, 216, 239, 0.10);
+        }
+        .hero .flx-photo-art::before,
+        .hero .flx-photo-art::after { display: none !important; }
+        .hero .flx-photo-art img { max-width: none; }
+        .hero .hero-copy { position: relative; z-index: 2; }
+        .hero .flx-compact-heading { max-width: 760px; }
+        @media (min-width: 901px) {
+          .hero .flx-photo-art { align-self: center; }
+        }
+        @media (max-width: 900px) {
+          .hero .flx-compact-heading { font-size: clamp(2rem, 5.5vw, 3rem) !important; }
+        }
+        @media (max-width: 600px) {
+          .hero .flx-compact-heading { font-size: clamp(1.75rem, 6.1vw, 2.35rem) !important; }
+          .hero .flx-compact-description br { display: none; }
+        }
+      `}</style>
+
       <section id="hjem" className="hero">
         <div className="hero-glow" />
 
         <div className="container hero-content">
           <div className="hero-copy">
-            <p className="eyebrow">
-              UTVIKLET FOR INNEBANDY
-            </p>
+            <p className="eyebrow">UTVIKLET FOR INNEBANDY</p>
 
-            <h1>
+            <h1 className="flx-compact-heading">
               Én plattform.
               <br />
-              Hele innebandyhverdagen.
+              <span className="flx-heading-white">Hele innebandyhverdagen.</span>
               <br />
               <span>På ett sted.</span>
             </h1>
 
-            <p className="hero-description">
+            <p className="hero-description flx-compact-description">
               Planlegg treninger, organiser kamper og utvikle spillerne.
               <br />
-              Alt samlet i FloorLabX – fra den enkelte trener
-              til hele klubben.
+              Alt samlet i FloorLabX – fra den enkelte trener til hele klubben.
             </p>
 
             <div className="hero-actions">
@@ -121,35 +143,32 @@ export default function HomePage() {
                 className="button button-primary button-large"
                 href="#funksjoner"
               >
-                Utforsk FloorLabX
-                <ArrowRight size={19} />
+                Utforsk FloorLabX <ArrowRight size={19} />
               </a>
 
               <a
                 className="button button-outline button-large"
                 href="#trenere"
               >
-                <PlayCircle size={20} />
-                Se mulighetene
+                <PlayCircle size={20} /> Se mulighetene
               </a>
             </div>
           </div>
 
-          <div className="hero-art" aria-hidden="true">
-            <div className="art-orbit orbit-one" />
-            <div className="art-orbit orbit-two" />
-
-            <div className="art-floorball">
-              <span className="ball-hole hole-one" />
-              <span className="ball-hole hole-two" />
-              <span className="ball-hole hole-three" />
-              <span className="ball-hole hole-four" />
-              <span className="ball-hole hole-five" />
-            </div>
-
-            <div className="art-stick" />
-            <div className="art-stick-head" />
-            <div className="art-light" />
+          <div className="hero-art flx-photo-art" aria-hidden="true">
+            <img
+              src="/floorlabx-hero-motiv.png"
+              alt=""
+              style={{
+                display: "block",
+                width: "100%",
+                height: "100%",
+                minHeight: 340,
+                objectFit: "cover",
+                objectPosition: "center",
+                borderRadius: 18,
+              }}
+            />
           </div>
 
           <div className="feature-grid" id="funksjoner">
@@ -182,64 +201,50 @@ export default function HomePage() {
       <section className="benefit-strip">
         <div className="container benefit-inner">
           <div>
-            <CalendarDays />
-            Planlegg og strukturer
+            <CalendarDays /> Planlegg og strukturer
           </div>
           <div>
-            <Target />
-            Utvikle spillere og lag
+            <Target /> Utvikle spillere og lag
           </div>
           <div>
-            <Users />
-            Del kunnskap i klubben
+            <Users /> Del kunnskap i klubben
           </div>
           <div>
-            <Zap />
-            Bygget for innebandy
+            <Zap /> Bygget for innebandy
           </div>
         </div>
       </section>
 
-      <section
-        id="trenere"
-        className="content-section section-dark"
-      >
+      <section id="trenere" className="content-section section-dark">
         <div className="container two-column">
           <div>
             <p className="eyebrow">FOR TRENERE</p>
-
             <h2>Mer tid til det som betyr noe.</h2>
 
             <p className="section-lead">
-              FloorLabX skal gjøre det enklere å planlegge gode
-              treninger, forberede kamper og utvikle laget
-              gjennom hele sesongen.
+              FloorLabX skal gjøre det enklere å planlegge gode treninger,
+              forberede kamper og utvikle laget gjennom hele sesongen.
             </p>
 
             <ul className="check-list">
               <li>
-                <CheckCircle2 />
-                Finn og organiser øvelser
+                <CheckCircle2 /> Finn og organiser øvelser
               </li>
               <li>
-                <CheckCircle2 />
-                Bygg treningsøkter
+                <CheckCircle2 /> Bygg treningsøkter
               </li>
               <li>
-                <CheckCircle2 />
-                Forbered lagoppstillinger og rekker
+                <CheckCircle2 /> Forbered lagoppstillinger og rekker
               </li>
               <li>
-                <CheckCircle2 />
-                Visualiser taktiske ideer
+                <CheckCircle2 /> Visualiser taktiske ideer
               </li>
             </ul>
           </div>
 
           <div className="showcase-card">
             <div className="showcase-top">
-              <BookOpen />
-              TRENERENS VERKTØYKASSE
+              <BookOpen /> TRENERENS VERKTØYKASSE
             </div>
 
             <div className="showcase-title">
@@ -248,31 +253,24 @@ export default function HomePage() {
 
             <div className="showcase-steps">
               <div>
-                <span>01</span>
-                Velg øvelser
+                <span>01</span> Velg øvelser
               </div>
               <div>
-                <span>02</span>
-                Planlegg økten
+                <span>02</span> Planlegg økten
               </div>
               <div>
-                <span>03</span>
-                Del med trenerteamet
+                <span>03</span> Del med trenerteamet
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section
-        id="klubber"
-        className="content-section section-light"
-      >
+      <section id="klubber" className="content-section section-light">
         <div className="container two-column">
           <div className="club-visual">
             <div className="club-center">
-              <Layers3 size={44} />
-              FLOORLABX
+              <Layers3 size={44} /> FLOORLABX
             </div>
 
             <div className="club-tags">
@@ -284,31 +282,26 @@ export default function HomePage() {
 
           <div>
             <p className="eyebrow">FOR KLUBBER</p>
-
             <h2>Én klubb. Felles struktur.</h2>
 
             <p className="section-lead">
               Samle trenere, lag og ressurser på ett sted.
-              Bygg en felles treningskultur og gjør kunnskap
-              tilgjengelig på tvers av klubbens lag.
+              Bygg en felles treningskultur og gjør kunnskap tilgjengelig
+              på tvers av klubbens lag.
             </p>
 
             <ul className="check-list">
               <li>
-                <CheckCircle2 />
-                Struktur for flere lag
+                <CheckCircle2 /> Struktur for flere lag
               </li>
               <li>
-                <CheckCircle2 />
-                Del øvelser og treningsressurser
+                <CheckCircle2 /> Del øvelser og treningsressurser
               </li>
               <li>
-                <CheckCircle2 />
-                Roller og tilgangsstyring
+                <CheckCircle2 /> Roller og tilgangsstyring
               </li>
               <li>
-                <CheckCircle2 />
-                Mindre dobbeltarbeid
+                <CheckCircle2 /> Mindre dobbeltarbeid
               </li>
             </ul>
           </div>
@@ -319,12 +312,9 @@ export default function HomePage() {
         <div className="container">
           <div className="section-heading">
             <p className="eyebrow">PLATTFORMEN</p>
-
             <h2>Bygget rundt trenerens hverdag</h2>
-
             <p>
-              Én sammenhengende løsning – fra treningsfeltet
-              til kampdagen.
+              Én sammenhengende løsning – fra treningsfeltet til kampdagen.
             </p>
           </div>
 
@@ -368,28 +358,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section
-        id="om"
-        className="content-section about-section"
-      >
+      <section id="om" className="content-section about-section">
         <div className="container section-heading">
           <p className="eyebrow">OM FLOORLABX</p>
 
           <h2>Utviklet med innebandyen i sentrum.</h2>
 
           <p>
-            FloorLabX utvikles for å gi trenere bedre verktøy
-            og klubber en felles plattform for planlegging,
-            samarbeid og utvikling. Plattformen er under
-            utvikling og forberedes for lukket betatesting.
+            FloorLabX utvikles for å gi trenere bedre verktøy og klubber
+            en felles plattform for planlegging, samarbeid og utvikling.
+            Plattformen er under utvikling og forberedes for lukket
+            betatesting.
           </p>
 
-          <a
-            className="button button-primary button-large"
-            href={APP_URL}
-          >
-            Gå til trenerplattformen
-            <ArrowRight size={18} />
+          <a className="button button-primary button-large" href={APP_URL}>
+            Gå til trenerplattformen <ArrowRight size={18} />
           </a>
         </div>
       </section>
@@ -401,8 +384,7 @@ export default function HomePage() {
           </strong>
 
           <p>
-            Utviklet for innebandy · ©{" "}
-            {new Date().getFullYear()} FloorLabX
+            Utviklet for innebandy · © {new Date().getFullYear()} FloorLabX
           </p>
 
           <a href={APP_URL}>Logg inn</a>
